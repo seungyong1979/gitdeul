@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>깃드는 자리 — 서로 다른 생명과 이야기가 머무는 곳</title>
+<meta name="description" content="2026.11.28 순천만습지 자연생태관. 책과 생태, 예술이 만나는 문화축제 〈깃드는 자리〉에 하나의 깃을 더해 주세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F3EF;
+  --paper-2:#EDE6D6;
+  --cream:#E6DDC6;
+  --ink:#3E3128;
+  --ink-2:#6B5A4B;
+  --ink-3:#9A8877;
+  --gold:#B88A60;
+  --gold-2:#D3AF86;
+  --line:rgba(62,49,40,.14);
+  --night:#221B16;
+  --serif:'Gowun Batang', 'Nanum Myeongjo', serif;
+  --sans:'Gowun Dodum', 'Apple SD Gothic Neo', sans-serif;
+  --latin:'Cormorant Garamond', serif;
+  --pad:clamp(22px, 6vw, 88px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;word-break:keep-all;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif)}
+.latin{font-family:var(--latin);letter-spacing:.18em;text-transform:uppercase}
+
+/* paper texture */
+.paper{position:relative;background:var(--paper)}
+.paper::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .32  0 0 0 0 .25  0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+.paper > *{position:relative}
+
+/* ───────── NAV ───────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:flex-end;
+  padding:14px var(--pad);padding-top:max(14px, env(safe-area-inset-top));transition:background .5s, color .5s, box-shadow .5s;color:#F6EFE3}
+.nav{pointer-events:none}.nav-links{pointer-events:auto}
+.nav{padding-top:max(20px, env(safe-area-inset-top));padding-bottom:16px;padding-left:clamp(18px,2.4vw,36px)}
+.nav:not(.solid){text-shadow:0 1px 2px rgba(80,48,18,.7), 0 2px 12px rgba(90,56,22,.55)}
+.nav-brand{font-weight:700;font-family:var(--serif);font-size:20px;line-height:1;letter-spacing:.22em;text-decoration:none;display:block;padding:4px 0}
+.nav-links{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600}
+.nav-links a{box-shadow:0 2px 10px -2px rgba(62,40,20,.22);text-decoration:none;border-radius:999px;padding:7px 16px;white-space:nowrap;line-height:1.4;text-shadow:none;
+  background:rgba(255,248,236,.95);color:var(--ink);border:1px solid transparent;transition:background .3s,color .3s,border-color .3s}
+.nav-links a:hover{background:#fff}
+.nav-links a:not(.nav-cta){border-color:rgba(62,49,40,.12)}
+.nav-links a.on{background:var(--ink);color:var(--paper)}
+.nav-links a.nav-cta{background:var(--gold);color:#fff}
+.nav-links a.nav-cta:hover{background:#a5784f}
+.burger,.nav-cta-m{display:none}
+@media (max-width:760px){
+  .nav{justify-content:flex-end;align-items:center;gap:8px;padding:max(14px, env(safe-area-inset-top)) 14px 12px}
+  .nav-cta-m{display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:999px;background:var(--gold);color:#fff;text-decoration:none;font-size:14px;font-weight:600;pointer-events:auto;box-shadow:0 2px 10px -2px rgba(62,40,20,.25);text-shadow:none}
+  .burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(62,49,40,.12);background:rgba(255,248,236,.95);pointer-events:auto;cursor:pointer;box-shadow:0 2px 10px -2px rgba(62,40,20,.25);position:relative;z-index:2}
+  .burger i{display:block;width:18px;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .35s, opacity .25s}
+  .nav.open .burger i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav.open .burger i:nth-child(2){opacity:0}
+  .nav.open .burger i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav-links{position:fixed;top:calc(max(14px, env(safe-area-inset-top)) + 54px);right:14px;left:auto;flex-direction:column;align-items:stretch;gap:4px;
+    background:rgba(255,250,242,.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:18px;padding:10px;min-width:200px;
+    box-shadow:0 18px 40px -16px rgba(40,26,14,.4);opacity:0;transform:translateY(-8px) scale(.98);transform-origin:top right;pointer-events:none;transition:opacity .3s, transform .3s}
+  .nav.open .nav-links{opacity:1;transform:none;pointer-events:auto}
+  .nav-links a{box-shadow:none;background:transparent;border:0!important;border-radius:12px;padding:14px 16px;font-size:15px;min-height:48px;display:flex;align-items:center}
+  .nav-links a:hover{background:rgba(62,49,40,.06)}
+  .nav-links a.on{background:var(--ink);color:var(--paper)}
+  .nav-links a.nav-cta{display:none}
+  .sticky{display:none!important}
+}
+
+/* ───────── HERO ───────── */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:var(--night);color:#F8F1E6}
+.hero-bg{position:absolute;inset:-4%;background:url(assets/reed-1.jpg) center 62%/cover no-repeat;animation:drift 38s ease-in-out infinite alternate;filter:sepia(.18) saturate(1.1) brightness(1.06)}
+@keyframes drift{from{transform:scale(1.04) translate3d(-1%,0,0)}to{transform:scale(1.12) translate3d(1.5%,-1%,0)}}
+.hero-shade{position:absolute;inset:0;background:rgba(232,150,70,.26)}
+.hero-shade::after{content:"";position:absolute;inset:0;background:rgba(70,44,22,.16)}
+.hero{background:#7a5a3c}
+#reeds{position:absolute;inset:0;width:100%;height:100%}
+.hero-birds{position:absolute;left:12vw;top:14vh;width:clamp(110px,12vw,190px);height:auto;opacity:0;pointer-events:none;filter:blur(.8px) sepia(.4) brightness(1.5) contrast(.7);mix-blend-mode:multiply;
+  animation:birdsIn 3s ease forwards 1.2s, birdsDrift 60s linear infinite 1.2s}
+@keyframes birdsIn{to{opacity:.32}}
+@keyframes birdsDrift{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(3vw,-1.6vh,0)}100%{transform:translate3d(0,0,0)}}
+@media (max-width:760px){.hero-birds{left:5vw;top:10.5vh;width:24vw}}
+.hero-inner{position:absolute;inset:0;display:grid;place-items:center;padding:90px var(--pad) 120px}
+/* key visual: 깃드는 (left, top) · subtitle · 자리 (right, lower) */
+.kv{--fs:clamp(60px, min(11.5vh, 21vw), 136px);display:flex;align-items:flex-start;gap:calc(var(--fs)*.22);font-weight:400;margin:0}
+.kv .col{writing-mode:vertical-rl;font-family:var(--serif);display:block}
+.kv .big{font-size:var(--fs);line-height:1;letter-spacing:.08em;color:#FFFBF3;font-weight:700;
+  text-shadow:0 1px 2px rgba(90,52,20,.6), 0 3px 16px rgba(100,60,24,.55), 0 0 44px rgba(110,70,30,.45)}
+.kv .c3{margin-top:calc(var(--fs)*2.55)}
+.kv .sub{font-size:clamp(16px,2.3vh,22px);font-weight:700;letter-spacing:.32em;color:#5A3416;margin-top:calc(var(--fs)*.25)}
+.kv .ch{display:inline-block;opacity:0;filter:blur(10px);transform:translateY(-.25em);
+  animation:chIn 1.6s cubic-bezier(.25,.6,.25,1) forwards;animation-delay:var(--d)}
+.kv .sub .ch{transform:translateY(-.6em);animation-duration:1.1s}
+.kv .sp{display:inline-block;height:.6em}
+@keyframes chIn{to{opacity:1;filter:blur(0);transform:none}}
+.kv .ch{transition:opacity 1.1s ease, filter 1.1s ease}
+.kv:not(.kv-out) .ch[style*="none"]{opacity:1;filter:none;transform:none}
+.kv.kv-out .ch{opacity:0!important;filter:blur(8px)!important}
+.hero-meta{position:absolute;left:0;right:0;bottom:0;padding:0 var(--pad) max(30px, env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.hero-meta .kw{font-size:13px;line-height:1.9;opacity:1;font-weight:600}
+.hero-meta{text-shadow:0 1px 2px rgba(80,48,18,.8), 0 2px 14px rgba(90,56,22,.65);color:#FFFBF3}
+.hero-date{font-family:var(--serif);text-align:right}
+.hero-date b{display:block;font-weight:400;font-size:clamp(20px,2.6vw,30px);letter-spacing:.04em}
+.hero-date small{font-size:15px;opacity:1}
+/* floating scroll button — follows the page */
+.scroll-cue{position:fixed;z-index:55;right:var(--pad);bottom:max(26px, env(safe-area-inset-bottom));
+  height:26px;padding:0 11px 0 13px;border-radius:999px;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:10px;
+  background:rgba(255,247,234,.2);border:1px solid rgba(255,247,234,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#FFF7EA;text-decoration:none;font-family:var(--latin);font-weight:600;font-size:9.5px;letter-spacing:.22em;gap:7px;cursor:pointer;
+  transition:background .5s, color .5s, border-color .5s, bottom .5s cubic-bezier(.2,.7,.2,1), transform .35s;opacity:0;animation:fadeIn 1.4s ease forwards 4.6s}
+@keyframes fadeIn{to{opacity:1}}
+.scroll-cue:hover{transform:translateY(-3px)}
+.scroll-cue.light{background:rgba(62,49,40,.12);border-color:rgba(62,49,40,.28);color:var(--ink)}
+.scroll-cue.light:hover{background:rgba(62,49,40,.2)}
+.scroll-cue::after{content:"";width:5px;height:5px;border-right:1.2px solid currentColor;border-bottom:1.3px solid currentColor;transform:rotate(45deg);animation:cue 2s ease-in-out infinite;margin-top:-3px}
+.scroll-cue.up{}
+.scroll-cue.up::after{transform:rotate(-135deg);animation:cueUp 2s ease-in-out infinite;margin:3px 0 0}
+@keyframes cue{0%,100%{transform:translateY(-1px) rotate(45deg);opacity:.5}50%{transform:translateY(2px) rotate(45deg);opacity:1}}
+@keyframes cueUp{0%,100%{transform:translateY(1px) rotate(-135deg);opacity:.5}50%{transform:translateY(-2px) rotate(-135deg);opacity:1}}
+.hero-brand{position:absolute;z-index:3;left:clamp(18px,2.4vw,36px);top:max(26px, calc(env(safe-area-inset-top) + 20px));
+  font-family:var(--sans);font-weight:400;font-style:normal;font-size:18px;letter-spacing:.04em;text-transform:none;color:#FFFBF3;text-decoration:none;line-height:1;
+  text-shadow:0 1px 2px rgba(80,48,18,.7), 0 2px 12px rgba(90,56,22,.55)}
+@media (max-width:760px){.hero-brand{top:calc(max(14px, env(safe-area-inset-top)) + 13px);left:18px;font-size:16px;letter-spacing:.05em}}
+.hero-fade{opacity:0;transform:translateY(14px);animation:rise 1.8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (max-width:760px){
+  .hero-meta{flex-direction:column;align-items:flex-start;padding-bottom:max(92px, calc(env(safe-area-inset-bottom) + 84px))}
+  .hero-meta .kw{display:none}
+  .hero-date{text-align:left}
+  .scroll-cue{right:16px;height:24px;padding:0 10px 0 12px;font-size:9px;gap:6px;bottom:max(24px, calc(env(safe-area-inset-bottom) + 16px))}
+  body.cta-on .scroll-cue{bottom:calc(max(12px, env(safe-area-inset-bottom)) + 64px)}
+  .hero-meta{padding-bottom:max(36px, calc(env(safe-area-inset-bottom) + 26px));padding-right:var(--pad);padding-bottom:max(72px, calc(env(safe-area-inset-bottom) + 64px))}
+  .hero-date b .t{display:block}
+  .hero-inner{padding:60px 0 190px;place-items:center;justify-items:center}
+  .kv{--fs:clamp(58px, min(10.5vh, 20vw), 96px);justify-content:center;width:100%;gap:calc(var(--fs)*.2)}
+  .kv .sub{font-size:15px;letter-spacing:.28em}
+}
+
+/* ───────── SECTIONS ───────── */
+section{padding:clamp(90px,14vw,170px) var(--pad)}
+.wrap{max-width:1120px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--latin);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.2vw,48px);line-height:1.38;letter-spacing:-.01em;margin:22px 0 0;text-wrap:balance}
+h2 em{font-style:normal;color:var(--gold)}
+.lead{font-family:var(--serif);font-size:clamp(17px,1.6vw,20px);line-height:1.95;color:var(--ink-2);margin-top:28px;max-width:40em;text-wrap:pretty}
+p{text-wrap:pretty}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1.1s ease, transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+/* ── 01 About ── */
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.about-title{font-size:clamp(32px,4.6vw,54px);line-height:1.32;color:var(--ink);font-weight:700}
+.about-title em{font-weight:700}
+.about-title .nw{white-space:nowrap}
+.about-body{margin-top:38px;padding-top:30px;border-top:1px solid rgba(62,49,40,.22);max-width:34em}
+.about-body p{font-family:var(--serif);font-size:clamp(17px,1.5vw,19px);line-height:1.9;color:var(--ink);margin:0 0 20px}
+.about-body p:last-child{margin-bottom:0}
+.about-body span{display:block}
+.about-body strong{font-weight:700;color:var(--gold)}
+.about-photo{position:relative;aspect-ratio:4/5;border-radius:2px;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo figcaption{position:absolute;left:16px;bottom:14px;font-size:12px;color:#fff;opacity:.85;letter-spacing:.06em}
+.keywords{display:flex;flex-wrap:nowrap;justify-content:center;align-items:baseline;gap:clamp(18px,4vw,56px);margin-top:clamp(56px,7vw,90px);padding-top:28px;border-top:1px solid rgba(62,49,40,.18)}
+.keywords div{display:inline-flex;align-items:baseline;gap:8px;line-height:1;white-space:nowrap}
+.keywords b{font-family:var(--latin);font-weight:600;font-size:13px;letter-spacing:.18em;color:var(--ink)}
+.keywords span{font-family:var(--serif);font-size:14px;color:var(--ink-3)}
+@media (max-width:860px){
+  .about{grid-template-columns:1fr}
+  .about-body span{display:inline-block;margin-right:.28em}
+  .about-body p{font-size:16.5px}
+  .why-body span{display:inline-block;margin-right:.28em}
+  .about-photo{aspect-ratio:4/3;order:-1}
+  .keywords{gap:14px}
+  .keywords div{flex-direction:column;align-items:center;gap:6px}
+  .keywords b{font-size:10px;letter-spacing:.1em}
+  .keywords span{font-size:14px}
+}
+
+/* ── Quote band ── */
+.band{position:relative;min-height:78vh;display:grid;place-items:center;text-align:center;color:#FBF4E8;overflow:hidden;padding:120px var(--pad)}
+.band-bg{position:absolute;inset:-10% 0;background:url(assets/cranes-2.jpg) 50% 40%/cover;will-change:transform;filter:sepia(.35) saturate(.8) brightness(.95)}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,22,16,.15) 0%,rgba(30,22,16,.42) 100%)}
+.band .q{text-shadow:0 2px 18px rgba(28,20,14,.45)}
+.band .q{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(24px,3.6vw,42px);line-height:1.7;max-width:20em;text-wrap:balance}
+.band .q .motto{margin-top:34px;padding-top:30px;border-top:1px solid rgba(251,244,232,.45);font-size:.62em;line-height:1.8;letter-spacing:.04em;display:inline-block}
+.band .q small{display:block;margin-top:26px;font-size:14px;letter-spacing:.2em;opacity:.8;font-family:var(--latin)}
+
+/* ── 02 새들의 서재 ── */
+.library{background:var(--paper-2)}
+.lib-title{white-space:nowrap;font-weight:700;font-size:clamp(23px,4.2vw,48px)}
+.lib-body{margin-top:36px;max-width:none;border-top:0;padding-top:0}
+.lib-body p{font-size:clamp(18px,1.9vw,23px)!important;line-height:1.75!important;color:var(--ink)!important;margin-bottom:22px!important}
+.lib-body p:last-child{margin-bottom:0!important}
+.lib-body em{font-style:normal;font-weight:700;color:var(--gold)}
+@media (max-width:860px){.lib-body p{font-size:17.5px!important}}
+.sky{position:relative;margin-top:56px;background:radial-gradient(90% 120% at 30% 0%, #1d2a4a 0%, #121a33 45%, #0a0f20 100%);border-radius:4px;overflow:hidden;padding:0 0 18px}
+.sky::after{content:"";position:absolute;inset:-20% -10%;background:linear-gradient(115deg, transparent 30%, rgba(170,180,230,.10) 45%, rgba(220,200,255,.08) 52%, transparent 66%);filter:blur(18px);pointer-events:none}
+.sky::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 22%,rgba(255,240,215,.5),transparent),radial-gradient(1px 1px at 33% 68%,rgba(255,240,215,.35),transparent),radial-gradient(1px 1px at 58% 14%,rgba(255,240,215,.4),transparent),radial-gradient(1px 1px at 81% 52%,rgba(255,240,215,.35),transparent),radial-gradient(1px 1px at 92% 18%,rgba(255,240,215,.45),transparent),radial-gradient(1px 1px at 6% 82%,rgba(255,240,215,.3),transparent),radial-gradient(1px 1px at 47% 88%,rgba(255,240,215,.3),transparent),radial-gradient(1px 1px at 70% 80%,rgba(255,240,215,.4),transparent);pointer-events:none}
+.sky-svg{display:block;width:100%;height:auto;position:relative}
+.sky-svg .ln{stroke:rgba(200,215,255,.22);stroke-width:.7;fill:none;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);opacity:0;transition:stroke-dashoffset 1.8s cubic-bezier(.4,.1,.2,1), opacity 1.2s ease}
+.sky-svg .ln.on{stroke-dashoffset:0;opacity:1}
+.sky-svg .fl{stroke:rgba(240,244,255,.9);stroke-width:1;stroke-linecap:round;fill:none;stroke-dasharray:var(--seg) var(--gap);stroke-dashoffset:var(--s0);opacity:0;transition:opacity 1.2s ease}
+.sky-svg .fl.on{opacity:.38;animation:flowLine var(--fd) linear infinite;animation-delay:var(--fdl)}
+@keyframes flowLine{from{stroke-dashoffset:var(--s0)}to{stroke-dashoffset:var(--s1)}}
+.sky-svg .ln.off{stroke-dashoffset:0;opacity:0}
+.sky-svg .halo{fill:rgba(200,215,255,.14)}
+.sky-svg .st{fill:#FFFFFF}
+.sky-svg .sub{fill:rgba(225,232,255,.8)}
+.sky-svg .tw{animation:twinkle 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+.sky-svg text{fill:#EEF1FF;font-family:var(--serif);letter-spacing:.06em}
+.sky-svg .dust{fill:#fff;animation:dustTw var(--d,4s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes dustTw{0%,100%{opacity:var(--o1,.2)}50%{opacity:var(--o2,.9)}}
+.sky-cap{position:relative;text-align:center;font-size:13px;letter-spacing:.2em;color:rgba(220,228,255,.55);margin-top:0}
+.seed-note{margin-top:24px;max-width:none}
+.seed-note p{font-size:15px!important;color:var(--ink-2)!important;margin-bottom:6px!important}
+.teams{display:grid;grid-template-columns:1fr 2.2fr;gap:40px;margin-top:80px;padding-top:36px;border-top:1px solid var(--line)}
+.teams h3{font-family:var(--serif);font-weight:400;font-size:22px}
+.teams h3 small{display:block;font-family:var(--sans);font-size:13px;color:var(--ink-3);margin-top:6px}
+.team-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px}
+.team-list a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;min-height:56px}
+.team-list .tn{font-family:var(--serif);font-size:17px;display:flex;align-items:center;gap:14px}
+.team-list .tn em{font-style:normal;font-family:var(--serif);font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;min-width:52px;text-align:center;padding:3px 10px;flex:0 0 auto}
+.team-list .ig{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;color:var(--ink-2);border:1px solid var(--line);border-radius:50%;transition:.3s;flex:0 0 auto}
+.team-list .ig i{width:15px;height:15px;border:1.4px solid currentColor;border-radius:4px;position:relative;flex:0 0 auto}
+.team-list .ig i::before{content:"";position:absolute;inset:2.2px;border:1.3px solid currentColor;border-radius:50%}
+.team-list .ig i::after{content:"";position:absolute;width:2px;height:2px;border-radius:50%;background:currentColor;top:1.2px;right:1.2px}
+.team-list a:hover .ig{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media (max-width:860px){
+  .lib-head,.teams{grid-template-columns:1fr}
+  .team-list{grid-template-columns:1fr}
+
+}
+
+/* ── 03 Program ── */
+.program-list{margin-top:70px;border-top:1px solid var(--ink)}
+.prog{display:grid;grid-template-columns:150px 60px 1fr auto;gap:24px;padding:34px 0;border-bottom:1px solid var(--line);align-items:start}
+.prog .t{font-family:var(--latin);font-size:20px;font-weight:500;color:var(--gold);letter-spacing:.04em;line-height:1.4}
+.prog .ic{width:44px;height:44px;background:var(--ink-2);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.prog .kind{font-size:13px;color:var(--ink-3);letter-spacing:.04em}
+.prog h3{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,26px);line-height:1.45;margin-top:4px}
+.prog p{color:var(--ink-2);margin-top:8px;font-size:15px}
+.prog .who{margin-top:12px;font-size:14px;color:var(--ink)}
+.prog a.pl{color:inherit;text-decoration:none;transition:color .3s}
+.prog a.pl:hover{color:var(--gold)}
+.prog .who p{margin:4px 0 0;color:var(--ink);font-size:14px}
+.prog .who b{font-weight:400;display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 10px;margin-right:8px;font-size:12px;color:var(--ink-3)}
+.prog ul{list-style:none;margin-top:10px;font-size:14px;color:var(--ink-2)}
+.prog ul li::before{content:"·";margin-right:8px;color:var(--gold)}
+.prog .tag-link{text-decoration:none;background:var(--gold);color:#fff!important;transition:background .3s}
+.prog .tag-link:hover{background:#a5784f}
+.prog .tag{font-size:12px;border:1px solid var(--gold);color:var(--gold);padding:3px 10px;border-radius:999px;white-space:nowrap;margin-top:6px}
+.prog-foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:40px}
+.prog-foot p{color:var(--ink-2);font-size:14px;max-width:34em}
+@media (max-width:760px){
+  .prog{grid-template-columns:1fr auto;gap:6px 14px;padding:28px 0}
+  .prog .t{grid-column:1;font-size:17px}
+  .prog .ic{display:none}
+  .prog .tag{grid-column:2;grid-row:1;margin:0;align-self:center}
+  .prog .tag-link{min-height:40px;display:inline-flex;align-items:center;padding:0 14px;font-size:13px}
+  .prog h3 .sub-t{font-size:.82em}
+  .prog .body{grid-column:1/-1}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-family:var(--sans);font-size:15px;text-decoration:none;cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.fill:hover{background:#2a211b}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn.gold:hover{background:#a5784f;border-color:#a5784f}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ── 04 Why support ── */
+.why{background:var(--night);color:#EFE6D8;position:relative;overflow:hidden}
+.why .eyebrow{color:var(--gold-2)}
+.why h2 em{color:var(--gold-2)}
+.why .lead{color:rgba(239,230,216,.75)}
+.why-feather{position:absolute;right:-4vw;top:50%;transform:translateY(-50%) rotate(8deg);width:min(46vw,520px);opacity:.14;pointer-events:none}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(239,230,216,.14);margin-top:72px;border:1px solid rgba(239,230,216,.14)}
+.flow div{background:var(--night);padding:34px 30px 38px}
+.flow .num{font-family:var(--latin);font-size:44px;line-height:1;color:var(--gold-2);font-weight:500}
+.flow h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--gold-2)}
+.why-body p{margin:0 0 14px}.why-body span{display:block}
+.ph{display:inline-block}
+b.ph{font-weight:inherit}
+.flow p{font-size:15px;color:rgba(239,230,216,.7);margin-top:10px}
+.commons{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:56px;padding:28px 0;border-top:1px solid rgba(239,230,216,.14);border-bottom:1px solid rgba(239,230,216,.14)}
+.commons .latin{font-size:12px;color:var(--gold-2)}
+.commons p{font-family:var(--serif);font-size:17px;line-height:1.9}
+@media (max-width:860px){.flow{grid-template-columns:1fr}.commons{grid-template-columns:1fr;gap:10px}}
+
+/* ── 05 How to support ── */
+.support{background:var(--paper)}
+.sup-grid{display:grid;grid-template-columns:1fr;gap:clamp(36px,5vw,64px);margin-top:20px}
+.sup-card{background:#FBFAF7;border:1px solid var(--line);padding:clamp(28px,4vw,52px);position:relative;box-shadow:0 30px 60px -40px rgba(62,49,40,.35);
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:stretch}
+.sup-main{min-width:0}
+.sup-card .rewards{margin-top:0;padding-left:clamp(0px,4vw,56px);border-left:1px solid var(--line);display:flex;flex-direction:column}
+.sup-card .rewards h4{line-height:1.5;padding-top:6px}
+.sup-card .rw{flex:1;margin-top:18px}
+.sup-card .rw div{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.sup-main{display:flex;flex-direction:column}
+.sup-main .period{margin-top:auto}
+.sup-main .price-note{margin-bottom:28px}
+.sup-card .label{display:flex;align-items:center;gap:14px}
+.sup-card .label i{width:44px;height:72px;background:var(--gold);-webkit-mask:url(assets/feather-one-t.png) center/contain no-repeat;mask:url(assets/feather-one-t.png) center/contain no-repeat}
+.sup-card .label div{font-family:var(--serif);font-size:15px;color:var(--ink-3);line-height:1.5}
+.sup-card .label b{display:block;font-weight:700;font-size:clamp(26px,2.6vw,32px);color:var(--ink);line-height:1.3}
+.price{font-family:var(--serif);font-size:clamp(40px,5vw,56px);margin-top:26px;line-height:1.1;letter-spacing:-.01em}
+.price small{font-size:18px;color:var(--ink-3);margin-left:4px}
+.price-note{font-size:14px;color:var(--ink-3);margin-top:8px}
+.period{display:flex;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px dashed var(--line);font-size:14px}
+.period span{color:var(--ink-3)}
+.period b{font-weight:400;font-family:var(--serif);font-size:16px}
+.rewards{margin-top:34px}
+.rewards h4{font-weight:400;font-size:14px;color:var(--ink-3);letter-spacing:.06em}
+.rw{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.rw div{background:var(--paper);padding:20px 10px 16px;text-align:center;font-size:14px;line-height:1.55;min-width:0}
+.rw i{display:block;width:100%;height:56px;margin-bottom:10px;background:var(--gold);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.rw b{display:block;font-family:var(--serif);font-weight:400;font-size:15px;color:var(--ink);margin-bottom:2px}
+.rw span{color:var(--ink-3);font-size:13px}
+.rw .nw{white-space:nowrap;display:inline-block;color:inherit;font-size:inherit}
+
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.step{padding:24px 0 0;border-top:1px solid var(--ink)}
+
+.step h3{font-family:var(--serif);font-weight:400;font-size:19px}
+.step p{color:var(--ink-2);font-size:14px;margin-top:6px}
+.acct{display:grid;grid-template-columns:1fr;grid-template-areas:'bank' 'no' 'copy';align-items:center;column-gap:14px;row-gap:2px;margin-top:16px;padding:16px 18px;background:var(--paper-2);border-radius:2px}
+.acct .bank{grid-area:bank}.acct .no{grid-area:no}.acct .holder{grid-area:holder}.acct .copy{grid-area:copy;justify-self:start;margin-top:12px}
+.acct .bank{font-size:13px;color:var(--ink-3)}
+.acct .no{font-family:var(--serif);font-size:19px;letter-spacing:.04em;display:flex;flex-wrap:wrap;align-items:baseline;row-gap:2px}
+.acct #acctNo{white-space:nowrap}
+.acct .holder{font-family:var(--sans);font-size:13px;letter-spacing:0;color:var(--ink-3);margin-left:10px;white-space:nowrap}
+.acct .no{flex-wrap:nowrap!important}
+.copy{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:4px 12px;font-family:var(--sans);font-size:12px;line-height:1.4;cursor:pointer;color:var(--ink);transition:.3s;min-height:30px}
+.copy:hover,.copy.done{background:var(--ink);color:var(--paper)}
+.apply{display:flex;align-items:center;gap:16px;margin-top:16px}
+.apply .qr{width:84px;height:84px;border:1px solid var(--line);padding:6px;background:#fff}
+.apply .qr img{width:100%;height:100%;object-fit:cover}
+.apply .url{font-size:13px;color:var(--ink-3);margin-top:8px}
+.transparency{margin-top:30px;font-size:14px;color:var(--ink-2);display:flex;gap:12px;align-items:flex-start}
+.transparency::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold);margin-top:9px}
+@media (max-width:1000px){.steps{grid-template-columns:1fr;gap:0}.step{padding:24px 0;border-top:0;border-bottom:1px solid var(--line)}.step:first-child{border-top:1px solid var(--ink)}}
+@media (max-width:860px){.sup-card{grid-template-columns:1fr}.sup-card .rewards{padding-left:0;border-left:0;padding-top:26px;border-top:1px dashed var(--line)}}
+@media (max-width:520px){.apply .qr{display:none}
+  .rw{grid-template-columns:1fr;gap:8px}
+  .rw div{display:grid;grid-template-columns:56px 1fr;align-items:center;text-align:left;column-gap:14px;padding:12px 14px}
+  .rw i{grid-row:1/3;height:44px;margin:0}
+  .rw b{font-size:15px}
+}
+
+/* ── 06 Visit ── */
+.visit{background:var(--paper-2);padding-bottom:clamp(70px,10vw,120px)}
+.visit-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,90px);margin-top:60px}
+.visit-photo{aspect-ratio:819/1024;overflow:hidden;max-width:460px;box-shadow:0 30px 60px -36px rgba(62,49,40,.4)}
+.visit-photo img{width:100%;height:100%;object-fit:cover}
+.info{list-style:none}
+.info li{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info li:first-child{border-top:1px solid var(--ink)}
+.info span{color:var(--ink-3);font-size:13px;padding-top:2px}
+.info b{font-weight:400;font-family:var(--serif);font-size:17px}
+.info small{display:block;color:var(--ink-2);font-size:13px;margin-top:4px}
+.links{display:grid;gap:10px;margin-top:28px}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border:1px solid var(--line);text-decoration:none;background:var(--paper);transition:.3s;min-height:56px}
+.links a:hover{border-color:var(--ink)}
+.links a span{font-size:13px;color:var(--ink-3)}
+.links a .lk-r{text-align:right;line-height:1.35}
+.links a .lk-l{line-height:1.35;color:inherit;font-size:inherit}
+.links a .lk-l small{display:block;font-size:11px;color:var(--ink-3);opacity:.85;margin-top:3px}
+.prog-links{margin-top:0;min-width:min(100%,340px)}
+.prog-links a{gap:24px}
+.links a .lk-r small{display:block;font-size:11px;color:var(--ink-3);opacity:.85;margin-top:2px}
+.links a.ask{background:#FEE500;border-color:#FEE500;color:#191600}
+.links a.ask span{color:rgba(25,22,0,.65)}
+.links a.ask:hover{border-color:#191600}
+@media (max-width:860px){.visit-grid{grid-template-columns:1fr}}
+
+/* ── Footer ── */
+footer{background:var(--night);color:rgba(239,230,216,.7);padding:44px var(--pad) calc(36px + env(safe-area-inset-bottom));font-size:13px}
+.foot{max-width:1120px;margin:0 auto;display:block}
+.foot-logo{width:82px;opacity:.9}
+.credits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 30px}
+.credits-2{margin-top:26px;padding-top:24px;border-top:1px solid rgba(239,230,216,.1)}
+@media (max-width:760px){.credits{grid-template-columns:repeat(2,minmax(0,1fr))}.credits-2 div:last-child{grid-column:1/-1}}
+.credits a{color:inherit;text-decoration:none;transition:color .3s}
+.credits a:hover{color:#fff}
+.credits a b{font-weight:inherit}
+.credits .role{font-size:11px;opacity:.6;margin-left:4px}
+.credits span{display:block;font-size:11px;letter-spacing:.14em;color:var(--gold-2);margin-bottom:4px}
+.foot-ask{max-width:1120px;margin:34px auto 0}
+.foot-ask a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:#FEE500;color:#191600;text-decoration:none;font-size:14px;font-weight:600}
+.foot-bottom{max-width:1120px;margin:40px auto 0;padding-top:22px;border-top:1px solid rgba(239,230,216,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6}
+@media (max-width:640px){.foot{grid-template-columns:1fr;gap:30px}footer{padding-bottom:calc(36px + env(safe-area-inset-bottom))}}
+
+/* ── Mobile sticky CTA ── */
+.sticky{position:fixed;left:12px;right:12px;bottom:max(12px, env(safe-area-inset-bottom));z-index:60;display:none;gap:8px;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.sticky.show{transform:none}
+.sticky a{flex:1;min-height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+.sticky .s1{background:rgba(245,243,239,.94);backdrop-filter:blur(10px);color:var(--ink);flex:.8}
+.sticky .s2{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){.sticky{display:flex}}
+
+.toast{position:fixed;left:50%;top:80px;transform:translate(-50%,-20px);background:var(--ink);color:var(--paper);padding:10px 20px;border-radius:999px;font-size:14px;opacity:0;transition:.4s;z-index:80;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-bg{animation:none}
+  .reveal{transition:none;opacity:1;transform:none}
+}
+</style>
+</head>
+<body class="no-js">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#support" class="nav-cta-m">후원하기</a>
+  <button class="burger" id="burger" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks"><i></i><i></i><i></i></button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">축제 소개</a>
+    <a href="#library">새들의 서재</a>
+    <a href="#program">프로그램</a>
+    <a href="#visit">오시는 길</a>
+    <a href="#support" class="nav-cta">후원하기</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-shade"></div>
+  <a href="#top" class="hero-brand hero-fade" style="animation-delay:.2s">A Place to Belong</a>
+  <img class="hero-birds" src="assets/cranes-flock-small.png" alt="" aria-hidden="true">
+  <canvas id="reeds" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <h1 class="kv" aria-label="깃드는 자리 — 서로 다른 생명과 이야기가 머무는 곳">
+      <span class="col big c1" data-split="깃드는" data-start="0.5" data-step="0.55"></span>
+      <span class="col sub c2" data-split="서로 다른 생명과 이야기가 머무는 곳" data-start="3.0" data-step="0.07"></span>
+      <span class="col big c3" data-split="자리" data-start="2.0" data-step="0.55"></span>
+    </h1>
+  </div>
+  <div class="hero-meta hero-fade" style="animation-delay:4.2s">
+    <div class="kw latin">Ecology<br>Culture<br>Life<br>Diversity<br>Commons</div>
+    <div class="hero-date">
+      <b>2026. 11. 28. 토 <span class="t">10:00–17:00</span></b>
+      <small>순천만습지 자연생태관 1·2층</small>
+    </div>
+  </div>
+  </header>
+
+<!-- 01 ABOUT -->
+<section class="paper" id="about" data-screen-label="02 About">
+  <div class="wrap about">
+    <div class="reveal">
+      <span class="eyebrow">About</span>
+      <h2 class="about-title">순천만습지에서<br>책과 생태,<br><span class="nw">예술이 <em>만납니다</em></span></h2>
+      <div class="about-body">
+        <p><span>수많은 생명의 서식지이자</span> <span>시민들이 함께 오랫동안 지켜 온 <strong>순천만습지</strong>.</span></p>
+        <p><span>이곳에 지역의 책방과 출판사,</span> <span>작가와 창작자들이 모여</span> <span>생태와 삶, 공존의 가치를 이야기합니다.</span></p>
+        <p><span>책과 소리, 영화, 사진으로</span> <span>인간과 자연이 함께 살아가는</span> <span>장소의 의미를 살펴봅니다.</span></p>
+        <p><span>지역 문화 주체들의 협력과 시민의 참여로</span> <span>지속 가능한 축제를 함께 꿈꿉니다.</span></p>
+      </div>
+    </div>
+    <figure class="about-photo reveal">
+      <img src="assets/suncheon.jpg" alt="순천만습지 갯벌과 갈대 군락">
+      <figcaption>순천만습지</figcaption>
+    </figure>
+  </div>
+  <div class="wrap reveal">
+    <div class="keywords">
+      <div><b>Ecology</b><span>생태</span></div>
+      <div><b>Culture</b><span>문화</span></div>
+      <div><b>Life</b><span>삶</span></div>
+      <div><b>Diversity</b><span>다양성</span></div>
+      <div><b>Commons</b><span>공유</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<div class="band" data-screen-label="03 Band">
+  <div class="band-bg" id="bandBg"></div>
+  <div class="q reveal">
+    <p>책을 함께 고르고,<br>서로의 생각을 연결하고,<br>작은 성과를 나누는 일</p>
+    <p class="motto">판매대 없는 책방,<br>공존과 가치 공유의 실험</p>
+    <small>Commons Bookstore</small>
+  </div>
+</div>
+
+<!-- 02 LIBRARY -->
+<section class="library paper" id="library" data-screen-label="04 새들의 서재">
+  <div class="wrap">
+    <div class="lib-head reveal">
+      <span class="eyebrow">Commons Bookstore</span>
+      <h2 class="lib-title">커먼즈 책방 〈새들의 서재〉</h2>
+      <div class="about-body lib-body">
+        <p><span><em>10개</em>의 생태 인문 키워드를 씨앗 삼아,</span> <span><b class="ph"><em>10팀</em>의 책방과 출판사가 엄선한</b> <b class="ph"><em>100종</em>의 책을 소개합니다.</b></span></p>
+        <p><span>〈새들의 서재〉는 책을 고르고 해석하며</span> <span><b class="ph">독자와 생각을 나누는</b> <b class="ph"><em>문화의 주체</em>로서의 책방을 꿈꿉니다.</b></span></p>
+      </div>
+    </div>
+
+    <div class="sky reveal" aria-label="10개의 키워드: 새, 물, 식물, 소리, 우주, 감각, 시간, 공존, 다양성, 상상">
+      <svg class="sky-svg" id="skySvg" aria-hidden="true"></svg>
+      <p class="sky-cap">새들의 서재</p>
+    </div>
+    <div class="about-body seed-note">
+      <p><span><b class="ph">책은 큐레이션 카드와 함께 전시되며,</b> <b class="ph">QR코드로 온라인 구매할 수 있습니다.</b></span></p>
+      <p><span><b class="ph">판매 수익은 참여 주체들과 나누고,</b> <b class="ph">그 일부를 순천만습지에 환원합니다.</b></span></p>
+    </div>
+
+    <div class="teams reveal">
+      <h3>참여 책방·출판사<small>전남·광주 8팀 · 지역 교류 2팀</small></h3>
+      <ul class="team-list">
+        <li><a href="https://www.instagram.com/thebaguni_book/" target="_blank" rel="noopener" aria-label="더바구니 책방 인스타그램">
+          <span class="tn"><em>고흥</em>더바구니 책방</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/lovenfree_book/" target="_blank" rel="noopener" aria-label="러브앤프리 인스타그램">
+          <span class="tn"><em>광주</em>러브앤프리</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/simdabooks/" target="_blank" rel="noopener" aria-label="심다 인스타그램">
+          <span class="tn"><em>순천</em>심다</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/a.samuso/" target="_blank" rel="noopener" aria-label="어쩌면사무소 인스타그램">
+          <span class="tn"><em>목포</em>어쩌면사무소</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/yeolmaehana/" target="_blank" rel="noopener" aria-label="열매하나 인스타그램">
+          <span class="tn"><em>순천</em>열매하나</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/notbookstore_/" target="_blank" rel="noopener" aria-label="이것은 서점이 아니다 인스타그램">
+          <span class="tn"><em>광주</em>이것은 서점이 아니다</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/chaekand/" target="_blank" rel="noopener" aria-label="책과 생활 인스타그램">
+          <span class="tn"><em>광주</em>책과 생활</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/librairie_aimer_lire/" target="_blank" rel="noopener" aria-label="취미는 독서 인스타그램">
+          <span class="tn"><em>순천</em>취미는 독서</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/ssam_book/" target="_blank" rel="noopener" aria-label="상추쌈출판사 인스타그램">
+          <span class="tn"><em>하동</em>상추쌈출판사</span><span class="ig"><i></i></span></a></li>
+        <li><a href="https://www.instagram.com/sosaebooks/" target="_blank" rel="noopener" aria-label="작은새책방 인스타그램">
+          <span class="tn"><em>정읍</em>작은새책방</span><span class="ig"><i></i></span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROGRAM -->
+<section class="paper" id="program" data-screen-label="05 Program">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Program</span>
+      <h2>깃드는 이야기</h2>
+    </div>
+    <div class="program-list">
+      <article class="prog reveal">
+        <div class="t">10:00<br>–17:00</div>
+        <i class="ic" style="--m:url(assets/feather-one-t.png)"></i>
+        <div class="body">
+          <div class="kind">커먼즈 책방</div>
+          <h3>〈새들의 서재〉</h3>
+          <p>10팀의 책방과 출판사가 엄선한 100종의 북큐레이션</p>
+        </div>
+        <span class="tag">상시</span>
+      </article>
+      <article class="prog reveal">
+        <div class="t">10:00<br>–11:30</div>
+        <i class="ic" style="--m:url(assets/icon-bird-t.png)"></i>
+        <div class="body">
+          <div class="kind">사운드스케이프 강연</div>
+          <h3><span class="ph">〈귀로 읽는 풍경〉</span> <span class="ph sub-t">순천과 제주, 두 땅의 소리</span></h3>
+          <p>지금 우리가 귀 기울여야 할 자연의 소리</p>
+          <div class="who"><p><b>강연</b><span class="ph"><a class="pl" href="https://www.instagram.com/thesoundbunker/" target="_blank" rel="noopener">더사운드벙커 이용원 대표</a></span></p><p><b>진행</b><span class="ph"><a class="pl" href="https://www.instagram.com/simdabooks/" target="_blank" rel="noopener">김주은 심다 대표</a></span></p></div>
+        </div>
+        <a class="tag tag-link" href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener">사전예약 →</a>
+      </article>
+      <article class="prog reveal">
+        <div class="t">12:00<br>–13:00</div>
+        <i class="ic" style="--m:url(assets/icon-crab-t.png)"></i>
+        <div class="body">
+          <div class="kind">단편 애니메이션 상영과 대화</div>
+          <h3>〈순천에서 보내는 편지〉</h3>
+          <p>순천에서 영감을 받아 만든 두 편의 애니메이션</p>
+          <ul>
+            <li><span class="ph">〈도래지〉 Doraeji (2025)</span> <span class="ph">· <a class="pl" href="https://www.instagram.com/pyoung999/" target="_blank" rel="noopener">서평원 감독</a> · 9분 · 전체관람가</span></li>
+            <li><span class="ph">〈살아있게〉 Stay Alive (2025)</span> <span class="ph">· 박재범 감독 · 12분 · 전체관람가</span></li>
+          </ul>
+          <div class="who"><p><b>진행</b><span class="ph"><a class="pl" href="https://www.instagram.com/offscript.mag/" target="_blank" rel="noopener">김혜미 오프스크립트 대표</a></span> <span class="ph">· <a class="pl" href="https://www.instagram.com/yeolmaehana/" target="_blank" rel="noopener">박수희 열매하나 편집자</a></span></p></div>
+        </div>
+        <a class="tag tag-link" href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener">사전예약 →</a>
+      </article>
+      <article class="prog reveal">
+        <div class="t">14:30<br>–16:30</div>
+        <i class="ic" style="--m:url(assets/icon-reed-t.png)"></i>
+        <div class="body">
+          <div class="kind">작가와의 대화</div>
+          <h3>〈여행에서 찾은 삶의 키워드〉</h3>
+          <p>여행에서 발견한 가치를 통해 더 나은 세상을 꿈꾸기</p>
+          <div class="who"><p><b>대담</b><span class="ph">『기후여행자』 임영신 작가</span> <span class="ph">× 『살아 있는 동안에』 정혜윤 PD</span></p><p><b>진행</b><span class="ph"><a class="pl" href="https://www.instagram.com/yeolmaehana/" target="_blank" rel="noopener">천소희 열매하나 대표</a></span></p></div>
+        </div>
+        <a class="tag tag-link" href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener">사전예약 →</a>
+      </article>
+      <article class="prog reveal">
+        <div class="t">상시<br>전시</div>
+        <i class="ic" style="--m:url(assets/reward-zine-t.png)"></i>
+        <div class="body">
+          <div class="kind">주제 전시 · 자연생태관 1층</div>
+          <h3>열매하나 출판사 『산사와 갯벌』 사진전</h3>
+          <p>세월이 흘러도 잊히지 않는 우리 곁의 장소, 선암사와 순천갯벌</p>
+        </div>
+        <span class="tag">상시</span>
+      </article>
+    </div>
+    <div class="prog-foot reveal">
+      <p><span class="ph">프로그램 참가비는 무료이며,</span> <span class="ph">강연·상영·대화는 사전예약제로 운영됩니다.</span></p>
+      <div class="links prog-links"><a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener"><span class="lk-l">프로그램 사전예약<small>(순천만습지 입장료 별도 3,000원)</small></span><span class="lk-r">참가비 무료 →</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 WHY -->
+<section class="why" id="why" data-screen-label="06 Why support">
+  <img class="why-feather" src="assets/logo-feather-t.png" alt="">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Why We Ask</span>
+      <h2>함께 만드는 축제에<br><em>하나의 깃</em>을 더해 주세요</h2>
+      <div class="lead why-body"><p><span>〈깃드는 자리〉는 공공의 지원과</span> <span>지역 문화 주체들의 협력으로 마련됩니다.</span></p><p><span>여기에 시민 한 사람 한 사람의 깃이 모일 때,</span> <span>이 자리는 일회성 행사를 넘어</span> <span>해마다 돌아오는 서식지가 됩니다.</span></p></div>
+    </div>
+    <div class="flow reveal">
+      <div><h3>큐레이션북 제작</h3><p><span class="ph">10팀이 고른 100종의 책과 이야기를</span> <span class="ph">한 권의 〈새들의 서재〉 큐레이션북으로 엮습니다.</span></p></div>
+      <div><h3>축제 운영</h3><p><span class="ph">책방, 강연, 상영, 전시가</span> <span class="ph">하루 동안 순천만습지에 머물 수 있도록</span> <span class="ph">행사 운영에 사용합니다.</span></p></div>
+      <div><h3>다음 축제의 씨앗</h3><p><span class="ph">남은 금액은 다음 〈깃드는 자리〉를 위한</span> <span class="ph">씨앗 자금으로 적립합니다.</span></p></div>
+    </div>
+    <div class="commons reveal">
+      <span class="latin">Commons</span>
+      <p><span class="ph">후원금 사용 내역은 투명하게 공개합니다.</span><br><span class="ph">책 판매로 생긴 수익은 참여 주체들과 나누고,</span> <span class="ph">그 일부를 순천만습지에 돌려드립니다.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 HOW -->
+<section class="support paper" id="support" data-screen-label="07 How to support">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">How to Support</span>
+      <h2>후원은 이렇게 참여하실 수 있어요</h2>
+    </div>
+    <div class="sup-grid" style="margin-top:60px">
+      <aside class="sup-card reveal">
+        <div class="sup-main">
+        <div class="label"><i></i><div><b>〈하나의 깃〉</b>시민 후원 프로그램</div></div>
+        <div class="price">30,000<small>원</small></div>
+        <p class="price-note">3만 원부터 자유롭게 참여하실 수 있습니다.</p>
+        <div class="period"><span>후원 기간</span><b>2026. 11. 22. – 11. 28.</b></div>
+        </div>
+        <div class="rewards">
+          <h4>후원 리워드</h4>
+          <div class="rw">
+            <div><i style="--m:url(assets/reward-book-t.png)"></i><b><span class="nw">〈새들의 서재〉</span></b><span><span class="nw">큐레이션북</span> <span class="nw">1권</span></span></div>
+            <div><i style="--m:url(assets/reward-bird-t.png)"></i><b><span class="nw">올해의 새</span> <span class="nw">키링</span></b><span><span class="nw">순천만습지</span> <span class="nw">1종</span></span></div>
+            <div><i style="--m:url(assets/reward-zine-t.png)"></i><b><span class="nw">순천만</span> <span class="nw">생태 진</span></b><span><span class="nw">〈공존을</span> <span class="nw">위한 연습〉</span></span></div>
+          </div>
+        </div>
+      </aside>
+
+      <ol class="steps reveal">
+        <li class="step">
+          <div>
+            <h3>후원금 보내기</h3>
+            <p><span class="ph">아래 계좌로 후원금을 보내 주세요.</span> <span class="ph">3만 원 이상이면 금액은 자유입니다.</span></p>
+            <div class="acct">
+              <span class="bank">카카오뱅크</span>
+              <span class="no"><span id="acctNo">7942-37-85399</span><span class="holder">예금주 김*은</span></span>
+              <button class="copy" id="copyBtn" type="button">계좌번호 복사</button>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <div>
+            <h3>후원 신청서 작성</h3>
+            <p><span class="ph">입금자명과 리워드를 받으실</span> <span class="ph">배송 정보를 남겨 주세요.</span></p>
+            <div class="apply">
+              <a class="btn fill" href="https://naver.me/GDQ6dfv0" target="_blank" rel="noopener" style="white-space:nowrap">후원 신청 · 정보 입력 <span class="arr">→</span></a>
+              <div class="qr"><img src="assets/qr.png" alt="후원 신청 QR코드"></div>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <div>
+            <h3>리워드 받기</h3>
+            <p><span class="ph">축제가 끝난 뒤,</span> <span class="ph">큐레이션북과 키링, 생태 진을 보내 드립니다.</span> <span class="ph">후원금이 어디에 쓰였는지도 함께 알려 드릴게요.</span></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 06 VISIT -->
+<section class="visit paper" id="visit" data-screen-label="08 Visit">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Visit</span>
+      <h2>11월 28일 순천만습지에서 만나요!</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-photo reveal"><img src="assets/poster-main.png" alt="〈깃드는 자리〉 메인 포스터"></div>
+      <div class="reveal">
+        <ul class="info">
+          <li><span>일시</span><div><b><span class="ph">2026. 11. 28.(토)</span> <span class="ph">10:00–17:00</span></b></div></li>
+          <li><span>장소</span><div><b>순천만습지 자연생태관 1·2층</b></div></li>
+          <li><span>참가비</span><div><b>프로그램 무료 (사전예약)</b><small><span class="ph">순천만습지 입장료 별도 ·</span> <span class="ph">일반 관람 사전예약 시</span> <span class="ph">당일 특별 입장료 3,000원</span></small></div></li>
+        </ul>
+        <div class="links">
+          <a href="https://naver.me/GtYrhrLT" target="_blank" rel="noopener">일반 관람 사전예약 <span>입장료 3,000원 →</span></a>
+          <a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener" id="progReserve">프로그램 사전예약 <span class="lk-r">입장료 3,000원 →<small>(프로그램 참가비 무료)</small></span></a>
+          <a class="ask" href="https://pf.kakao.com/_MlBxan" target="_blank" rel="noopener">문의하기 <span>심다 카카오톡 채널 →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="09 Footer">
+  <div class="foot">
+        <div class="credits">
+      <div><span>주최</span>전남광주특별시</div>
+      <div><span>주관</span><a href="https://www.instagram.com/gjcf2011/" target="_blank" rel="noopener">광주문화재단</a> · <a href="https://www.instagram.com/simdabooks/" target="_blank" rel="noopener">심다</a></div>
+      <div><span>협력</span><a href="https://www.instagram.com/yeolmaehana/" target="_blank" rel="noopener">열매하나</a> · <a href="https://www.instagram.com/jeonnam_film/" target="_blank" rel="noopener">전남영상위원회</a></div>
+      <div><span>후원</span><a href="https://www.instagram.com/suncheon_bay/" target="_blank" rel="noopener">순천시 순천만보전과</a></div>
+    </div>
+    <div class="credits credits-2">
+      <div><span>총괄기획</span><a href="https://www.instagram.com/simdabooks/" target="_blank" rel="noopener">김주은</a> <small class="role">심다 대표</small></div>
+      <div><span>총괄디자인</span><a href="https://www.instagram.com/harudesign.co.kr/" target="_blank" rel="noopener">신수진</a> <small class="role">하루디자인 대표</small></div>
+      <div><span>문의</span><a href="#" id="mailLink" data-u="simdabooks" data-d="naver.com">simdabooks<b>&#64;</b>naver.com</a></div>
+    </div>
+  </div>
+  <div class="foot-bottom"><span>〈깃드는 자리〉 서로 다른 생명과 이야기가 머무는 곳</span><span>2026 Suncheon Bay Wetland Reserve</span></div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="s1" href="#program">프로그램</a>
+  <a class="s2" href="#support">하나의 깃 더하기</a>
+</div>
+<div class="toast" id="toast">계좌번호를 복사했어요</div>
+
+<script>
+document.body.classList.remove('no-js');
+
+/* ── Key visual: reveal one character at a time (repeats every 20s) ── */
+setInterval(()=>{
+  const kv=document.querySelector('.kv'); if(!kv) return;
+  const r=kv.getBoundingClientRect(); if(r.bottom<0||document.hidden) return;
+  kv.querySelectorAll('.ch').forEach(c=>{c.style.animation='none'});
+  kv.offsetWidth; kv.classList.add('kv-out');
+  setTimeout(()=>{kv.classList.remove('kv-out');kv.querySelectorAll('.ch').forEach(c=>{c.style.animation=''})},1300);
+},20000);
+document.querySelectorAll('[data-split]').forEach(el=>{
+  const start=+el.dataset.start, step=+el.dataset.step; let i=0;
+  el.setAttribute('aria-hidden','true');
+  for(const c of el.dataset.split){
+    const s=document.createElement('span');
+    if(c===' '){s.className='sp';}
+    else{s.className='ch';s.textContent=c;s.style.setProperty('--d',(start+i*step).toFixed(2)+'s');i++;}
+    el.appendChild(s);
+  }
+});
+
+/* ── Swaying reeds (hero) — fluffy pampas plumes ── */
+(function(){
+  const cv=document.getElementById('reeds'), ctx=cv.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W,H,dpr,stalks=[],motes=[],sprites=[],fluff=[],flocks=[];
+  // distant flock of cranes crossing the sky
+  function newFlock(first){
+    const n=(rnd(6,11))|0, scale=rnd(.75,1.25)*Math.min(1.2,Math.max(.7,W/1300));
+    const birds=[];
+    for(let i=0;i<n;i++){const row=Math.ceil(i/2), side=i%2?1:-1;
+      birds.push({dx:-row*rnd(20,28)*scale, dy:side*row*rnd(9,14)*scale+rnd(-3,3), ph:rnd(0,6.28), sp:rnd(.9,1.15), s:scale*rnd(.85,1.1)});}
+    return {x:first?rnd(W*.05,W*.35):-rnd(80,400), y:H*rnd(.1,.26), vx:rnd(.28,.45)*scale, vy:rnd(-.05,.02), birds, wait:0};
+  }
+  function newFluff(anyY){const front=Math.random()<.35;return {x:anyY?rnd(-40,W):rnd(-60,W*.6),y:anyY?rnd(H*.15,H):rnd(H*.72,H),
+    vx:rnd(.35,1.1)*(front?1.6:1),vy:rnd(-.45,-.08),rot:rnd(0,6.28),vr:rnd(-.02,.02),len:rnd(5,11)*(front?1.7:1),a:front?rnd(.55,.85):rnd(.3,.55),ph:rnd(0,6.28),front}}
+  function rnd(a,b){return a+Math.random()*(b-a)}
+
+  // pre-render plume sprites (pointing up, anchor bottom-center)
+  function makeSprite(tone){
+    const w=200,h=320,c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');
+    const lean=rnd(26,48), bx=w/2-18, by=h-6, tx=w/2-18+lean, ty=34;
+    const pt=t=>({x:bx+(tx-bx)*t*t*.9+lean*.1*t, y:by+(ty-by)*t+Math.pow(t,3)*24});
+    g.lineCap='round';
+    // rachis
+    g.strokeStyle=`rgba(${tone[0]},${tone[1]},${tone[2]},.45)`;g.lineWidth=.9;
+    g.beginPath();for(let i=0;i<=20;i++){const p=pt(i/20);i?g.lineTo(p.x,p.y):g.moveTo(p.x,p.y)}g.stroke();
+    // branches with fine hairs
+    const B=84;
+    for(let i=0;i<B;i++){
+      const t=.04+.94*(i/B)+rnd(-.01,.01), p=pt(t);
+      const env=Math.sin(Math.pow(t,.7)*Math.PI)*.8+.2;          // spindle shape
+      const side=i%2?1:-1, len=(38+rnd(0,30))*env;
+      const ang=-Math.PI/2+(side>0?rnd(.7,1.5):rnd(-.6,.1))+t*.5;   // nodding, hangs downwind
+      const ex=p.x+Math.cos(ang)*len, ey=p.y+Math.sin(ang)*len+len*(.3+t*.35);
+      const hairs=Math.round(18+env*26);
+      for(let k=0;k<hairs;k++){
+        const u=k/hairs, hx=p.x+(ex-p.x)*u, hy=p.y+(ey-p.y)*u;
+        const ha=ang+rnd(-.5,1.3), hl=rnd(7,18)*env*(1-u*.35);
+        const al=rnd(.14,.34)*(1-u*.25);
+        g.strokeStyle=`rgba(${tone[0]},${tone[1]},${tone[2]},${al})`;g.lineWidth=rnd(.5,1.1);
+        g.beginPath();g.moveTo(hx,hy);g.quadraticCurveTo(hx+Math.cos(ha)*hl*.6,hy+Math.sin(ha)*hl*.6,hx+Math.cos(ha)*hl,hy+Math.sin(ha)*hl+hl*.45);g.stroke();
+      }
+      g.strokeStyle=`rgba(${tone[0]},${tone[1]},${tone[2]},.35)`;g.lineWidth=.7;
+      g.beginPath();g.moveTo(p.x,p.y);g.quadraticCurveTo((p.x+ex)/2,(p.y+ey)/2-4,ex,ey);g.stroke();
+    }
+    // soft glow pass
+    const c2=document.createElement('canvas');c2.width=w;c2.height=h;const g2=c2.getContext('2d');
+    g2.filter='blur(5px)';g2.globalAlpha=.75;g2.drawImage(c,0,0);g2.filter='none';g2.globalAlpha=1;g2.drawImage(c,0,0);
+    return c2;
+  }
+  function build(){
+    dpr=Math.min(devicePixelRatio||1,2);
+    W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    if(!sprites.length){
+      const tones=[[255,236,204],[248,222,180],[255,228,190],[240,208,160],[255,242,218],[236,198,150]];
+      sprites=tones.map(makeSprite);
+    }
+    const n=Math.round(W/(W<700?7:6));
+    stalks=[];
+    for(let i=0;i<n;i++){
+      const layer=Math.random()<.4?0:1;
+      stalks.push({x:rnd(-30,W+30),h:H*(layer?rnd(.09,.2):rnd(.05,.13)),layer,
+        ph:rnd(0,Math.PI*2),stiff:rnd(.75,1.3),lean:rnd(-.08,.1),
+        size:(layer?rnd(.45,.68):rnd(.28,.42))*Math.min(1.1,Math.max(.6,H/900)),
+        spr:sprites[(Math.random()*sprites.length)|0], alpha:layer?rnd(.8,1):rnd(.45,.65)});
+    }
+    stalks.sort((a,b)=>a.layer-b.layer||a.h-b.h);
+    motes=Array.from({length:W<700?22:40},()=>({x:rnd(0,W),y:rnd(H*.2,H),r:rnd(.7,2),v:rnd(.2,.6),ph:rnd(0,6)}));
+    fluff=Array.from({length:W<700?45:110},()=>newFluff(true));
+    flocks=[];
+  }
+  function wind(t,x){return Math.sin(t*.55+x*.0035)*.6+Math.sin(t*1.3+x*.011)*.25+Math.max(0,Math.sin(t*.18))*.35*Math.sin(t*2.1+x*.006)}
+  function draw(ts){
+    const t=ts/1000;
+    ctx.clearRect(0,0,W,H);
+    // birds
+    ctx.lineCap='round';ctx.lineJoin='round';
+    for(let fi=0;fi<flocks.length;fi++){
+      const F=flocks[fi];
+      F.x+=F.vx; F.y+=F.vy+Math.sin(t*.4+fi)*.05;
+      const minX=Math.min(...F.birds.map(b=>b.dx));
+      if(F.x+minX>W+60){flocks[fi]=newFlock(false);continue;}
+      for(const b of F.birds){
+        const flap=Math.sin(t*4.2*b.sp+b.ph);
+        const x=F.x+b.dx+Math.sin(t*.7+b.ph)*2, y=F.y+b.dy+Math.cos(t*.9+b.ph)*1.5;
+        const span=9*b.s, lift=flap*4.5*b.s;
+        ctx.strokeStyle='rgba(74,46,24,.72)';ctx.lineWidth=1.5*Math.max(.8,b.s);
+        ctx.beginPath();
+        ctx.moveTo(x-span,y-lift);
+        ctx.quadraticCurveTo(x-span*.45,y-lift*.35-2*b.s,x,y);
+        ctx.quadraticCurveTo(x+span*.45,y-lift*.35-2*b.s,x+span,y-lift);
+        ctx.stroke();
+        // neck & body hint
+        ctx.beginPath();ctx.moveTo(x-2*b.s,y+.5);ctx.lineTo(x+5*b.s,y-.5);ctx.stroke();
+      }
+    }
+    for(const s of stalks){
+      const w=(wind(t,s.x)*.17+s.lean)/s.stiff;
+      const bx=s.x, by=H+4;
+      const tipx=bx+Math.sin(w)*s.h*1.05, tipy=by-Math.cos(w)*s.h;
+      const cx=bx+Math.sin(w*.4)*s.h*.5, cy=by-s.h*.55;
+      const sg=ctx.createLinearGradient(0,tipy,0,by);
+      sg.addColorStop(0,s.layer?'rgba(240,214,170,.7)':'rgba(240,214,170,.4)');
+      sg.addColorStop(.55,s.layer?'rgba(210,172,120,.35)':'rgba(210,172,120,.2)');
+      sg.addColorStop(1,'rgba(180,140,90,0)');
+      ctx.strokeStyle=sg;ctx.lineWidth=s.layer?.9:.6;
+      ctx.beginPath();ctx.moveTo(bx,by);ctx.quadraticCurveTo(cx,cy,tipx,tipy);ctx.stroke();
+      const ang=Math.atan2(tipy-cy,tipx-cx)+Math.sin(t*1.6+s.ph)*.05;
+      const sw=s.spr.width*s.size, sh=s.spr.height*s.size;
+      ctx.save();ctx.globalAlpha=s.alpha;ctx.translate(tipx,tipy);ctx.rotate(ang+Math.PI/2);
+      ctx.drawImage(s.spr,-sw/2+18*s.size,-sh*.97,sw,sh);ctx.restore();
+    }
+    ctx.globalAlpha=1;
+    for(const m of motes){
+      m.x+=m.v+wind(t,m.y)*.3; m.y+=Math.sin(t+m.ph)*.15-.06;
+      if(m.x>W+10){m.x=-10;m.y=rnd(H*.2,H)}
+      ctx.fillStyle=`rgba(255,240,210,${.4+.3*Math.sin(t*2+m.ph)})`;
+      ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,7);ctx.fill();
+    }
+    // drifting reed fluff (seed hairs)
+    ctx.lineCap='round';
+    for(const f of fluff){
+      const g=wind(t,f.y)*.9;
+      f.x+=f.vx+g*.8; f.y+=f.vy+Math.sin(t*1.3+f.ph)*.35; f.rot+=f.vr+g*.01;
+      if(f.x>W+40||f.y<-30) Object.assign(f,newFluff(false));
+      const tw=.75+.25*Math.sin(t*2.2+f.ph);
+      ctx.save();ctx.translate(f.x,f.y);ctx.rotate(f.rot);
+      const L=f.len*.55;
+      ctx.strokeStyle=`rgba(255,248,232,${f.a*.45*tw})`;ctx.lineWidth=.5;
+      ctx.beginPath();
+      for(let k=0;k<7;k++){const an=-1.1+k*.37+Math.sin(t+f.ph+k)*.08;ctx.moveTo(0,0);ctx.quadraticCurveTo(Math.cos(an)*L*.6,Math.sin(an)*L*.6-1,Math.cos(an)*L,Math.sin(an)*L+L*.2);}
+      ctx.stroke();
+      const rg=ctx.createRadialGradient(0,0,0,0,0,L*.7);rg.addColorStop(0,`rgba(255,250,240,${f.a*.55})`);rg.addColorStop(1,'rgba(255,250,240,0)');
+      ctx.fillStyle=rg;ctx.beginPath();ctx.arc(0,0,L*.7,0,7);ctx.fill();
+      ctx.restore();
+    }
+    if(!reduce) raf=requestAnimationFrame(draw);
+  }
+  let raf, visible=true;
+  build(); raf=requestAnimationFrame(draw);
+  addEventListener('resize',()=>{build()});
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting&&!visible&&!reduce){visible=true;raf=requestAnimationFrame(draw)}
+    else if(!e.isIntersecting){visible=false;cancelAnimationFrame(raf)}
+  }).observe(cv);
+})();
+
+/* ── Nav + sticky CTA ── */
+const nav=document.getElementById('nav'), sticky=document.getElementById('sticky'), sup=document.getElementById('support'), bandBg=document.getElementById('bandBg');
+function onScroll(){
+  const y=scrollY, h=innerHeight;
+  nav.classList.toggle('solid', y>h*.75);
+  const r=sup.getBoundingClientRect();
+  const inSupport=r.top<h*.6 && r.bottom>h*.4;
+  const ctaOn=y>h*.6 && !inSupport;
+  sticky.classList.toggle('show', ctaOn);
+  document.body.classList.toggle('cta-on', ctaOn && matchMedia('(max-width:760px)').matches);
+  const b=bandBg.parentElement.getBoundingClientRect();
+  if(b.bottom>0&&b.top<h) bandBg.style.transform=`translate3d(0,${(b.top-h/2)*-.12}px,0)`;
+}
+addEventListener('scroll',onScroll,{passive:true});
+
+onScroll();
+
+/* ── Keyword constellation ── */
+(function(){
+  const svg=document.getElementById('skySvg'); if(!svg) return;
+  const words=['새','물','식물','소리','우주','감각','시간','공존','다양성','상상'];
+  // main stars (keywords) + minor stars (unlabeled) — indices 10+
+  const D={vb:[1000,310],
+    p:[[110,250],[230,120],[350,215],[470,95],[560,230],[470,320],[680,150],[800,265],[880,120],[930,300],
+       [60,150],[170,330],[290,60],[300,320],[410,170],[620,320],[640,60],[740,350],[760,60],[960,200],[540,40],[860,370]],
+    l:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,2],[4,6],[6,7],[7,8],[8,9],[7,9],[0,10],[10,1],[0,11],[11,13],[13,2],[1,12],[12,3],[2,14],[14,4],[3,20],[20,16],[16,6],[6,18],[18,8],[4,15],[15,7],[7,17],[17,21],[21,9],[8,19],[19,9],[5,13],[15,17]]};
+  const M={vb:[360,360],
+    p:[[50,90],[130,45],[210,100],[300,55],[250,175],[140,170],[60,250],[150,290],[250,265],[320,320],
+       [20,180],[95,130],[175,20],[340,140],[200,220],[100,340],[290,210],[25,320]],
+    l:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[2,4],[5,6],[6,7],[7,8],[8,9],[4,8],[0,10],[10,6],[0,11],[11,5],[1,12],[12,3],[3,13],[13,4],[5,14],[14,8],[7,15],[4,16],[16,9],[6,17],[17,15],[11,2]]};
+  const NS='http://www.w3.org/2000/svg';
+  function el(n,a){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e}
+  if(!D._s){D.p=D.p.map(([x,y])=>[x,Math.round(y*.72+6)]);D._s=1}
+  function render(){
+    const L=matchMedia('(max-width:700px)').matches?M:D;
+    svg.innerHTML='';svg.setAttribute('viewBox','0 0 '+L.vb.join(' '));
+    const dn=L===M?120:260;
+    for(let i=0;i<dn;i++){const r=Math.random();const c=el('circle',{class:'dust',cx:(Math.random()*L.vb[0]).toFixed(1),cy:(Math.random()*L.vb[1]).toFixed(1),r:(r<.92?Math.random()*.7+.25:Math.random()*.6+.9).toFixed(2)});
+      const tw=Math.random()<.55;c.style.setProperty('--o1',(Math.random()*.25+.08).toFixed(2));c.style.setProperty('--o2',tw?(Math.random()*.5+.5).toFixed(2):(Math.random()*.2+.25).toFixed(2));c.style.setProperty('--d',(Math.random()*5+2).toFixed(2)+'s');c.style.setProperty('--dl',(-Math.random()*7).toFixed(2)+'s');svg.appendChild(c)}
+    // candidate edges: authored pool + any near pairs
+    const thr=L===M?120:190, key=(a,b)=>a<b?a+'-'+b:b+'-'+a, seen=new Set(), pool=[];
+    const add=(a,b)=>{const k=key(a,b);if(a===b||seen.has(k))return;seen.add(k);pool.push([a,b])};
+    L.l.forEach(([a,b])=>add(a,b));
+    for(let a=0;a<L.p.length;a++)for(let b=a+1;b<L.p.length;b++){if(Math.hypot(L.p[a][0]-L.p[b][0],L.p[a][1]-L.p[b][1])<thr)add(a,b)}
+    const defs=el('defs',{});defs.innerHTML='<filter id="lnGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';svg.appendChild(defs);
+    const lineG=el('g',{filter:'url(#lnGlow)'});svg.appendChild(lineG);
+    const flowG=el('g',{filter:'url(#lnGlow)'});
+    lines=pool.map(([a,b])=>{const [x1,y1]=L.p[a],[x2,y2]=L.p[b];const len=Math.hypot(x2-x1,y2-y1);
+      const ln=el('line',{class:'ln',x1,y1,x2,y2});
+      if(a>=10||b>=10)ln.setAttribute('stroke-opacity','.6');ln.style.setProperty('--len',len.toFixed(1));lineG.appendChild(ln);
+      const rev=Math.random()<.5, seg=Math.max(8,Math.min(16,len*.1));
+      const fl=el('line',{class:'fl',x1:rev?x2:x1,y1:rev?y2:y1,x2:rev?x1:x2,y2:rev?y1:y2});
+      fl.style.setProperty('--seg',seg.toFixed(1));fl.style.setProperty('--gap',(len*1.6).toFixed(1));
+      fl.style.setProperty('--s0',seg.toFixed(1));fl.style.setProperty('--s1',(-len).toFixed(1));
+      fl.style.setProperty('--fd',(len/35+3+Math.random()*3).toFixed(2)+'s');fl.style.setProperty('--fdl',(-Math.random()*4).toFixed(2)+'s');
+      flowG.appendChild(fl);ln._fl=fl;return ln});
+    lineG.after(flowG);
+    target=Math.round(lines.length*.55);
+    L.p.forEach(([x,y],i)=>{
+      if(i>=10){const st=el('circle',{class:'sub tw',cx:x,cy:y,r:L===M?1.4:1.8});st.style.animationDelay=(i*.53%3.6)+'s';svg.appendChild(st);return;}
+      const big=[0,3,6,8].includes(i), r=(big?4.2:3.2)*(L===M?.8:1);
+      svg.appendChild(el('circle',{class:'halo',cx:x,cy:y,r:r*4}));
+      const st=el('circle',{class:'st tw',cx:x,cy:y,r});st.style.animationDelay=(i*.37%3.6)+'s';svg.appendChild(st);
+      let t;
+      if(L===D){const below=[0,2,4,5,7,9].includes(i);t=el('text',{x,y:below?y+32:y-18,'text-anchor':'middle'});}
+      else{const fs=14;const right=x<200;t=el('text',{x:right?x+12:x-12,y:y+(y<60?18:-10),'text-anchor':right?'start':'end','font-size':fs});}
+      if(L===D)t.setAttribute('font-size',18);t.textContent=words[i];svg.appendChild(t);
+    });
+  }
+  let lines=[],target=0,timer=null,started=false;
+  const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+  function turnOn(ln){ln.classList.remove('off');void ln.getBBox();ln.classList.add('on');setTimeout(()=>{if(ln.classList.contains('on'))ln._fl&&ln._fl.classList.add('on')},1500)}
+  function turnOff(ln){ln._fl&&ln._fl.classList.remove('on');ln.classList.remove('on');ln.classList.add('off');setTimeout(()=>{if(ln.classList.contains('off'))ln.classList.remove('off')},1300)}
+  function start(){
+    if(started) return; started=true;
+    // initial: draw random subset one by one
+    shuffle(lines.slice()).slice(0,target).forEach((ln,i)=>setTimeout(()=>turnOn(ln),i*110));
+    clearInterval(timer);
+    timer=setInterval(()=>{
+      const on=lines.filter(l=>l.classList.contains('on')), off=lines.filter(l=>!l.classList.contains('on')&&!l.classList.contains('off'));
+      const n=1+((Math.random()*2)|0);
+      for(let k=0;k<n;k++){
+        if(on.length>target*.7) turnOff(on.splice((Math.random()*on.length)|0,1)[0]);
+        if(off.length) turnOn(off.splice((Math.random()*off.length)|0,1)[0]);
+      }
+    },1400);
+  }
+  render();
+  const sky=svg.closest('.sky');
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting){ if(!started) start(); else if(!timer) start(); }
+  },{threshold:.25}).observe(sky);
+  let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{render();started=false;start()},250)});
+})();
+
+/* ── Mail link ── */
+(function(){const m=document.getElementById('mailLink');if(m)m.href='mai'+'lto:'+m.dataset.u+String.fromCharCode(64)+m.dataset.d;})();
+
+/* ── Mobile burger ── */
+(function(){
+  const nav=document.getElementById('nav'), b=document.getElementById('burger');
+  const set=o=>{nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')};
+  b.addEventListener('click',e=>{e.stopPropagation();set(!nav.classList.contains('open'))});
+  nav.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>set(false)));
+  document.addEventListener('click',e=>{if(!nav.contains(e.target))set(false)});
+  addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
+})();
+
+/* ── Active nav pill ── */
+const navMap=[...document.querySelectorAll('.nav-links a')].map(a=>[a,document.querySelector(a.getAttribute('href'))]).filter(x=>x[1]);
+addEventListener('scroll',()=>{
+  const y=innerHeight*.35;let cur=null;
+  for(const [a,el] of navMap){const r=el.getBoundingClientRect();if(r.top<=y&&r.bottom>y)cur=a;}
+  navMap.forEach(([a])=>a.classList.toggle('on',a===cur&&!a.classList.contains('nav-cta')));
+},{passive:true});
+
+/* ── Reveal ── */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ── Copy account ── */
+const btn=document.getElementById('copyBtn'), toast=document.getElementById('toast');
+btn.addEventListener('click',async()=>{
+  const txt='카카오뱅크 7942-37-85399';
+  try{await navigator.clipboard.writeText(txt)}catch(e){
+    const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();
+  }
+  btn.textContent='복사됨';btn.classList.add('done');toast.classList.add('on');
+  setTimeout(()=>{btn.textContent='계좌번호 복사';btn.classList.remove('done');toast.classList.remove('on')},1800);
+});
+</script>
+</body>
+</html>
