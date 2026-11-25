@@ -296,7 +296,7 @@ p{text-wrap:pretty}
 .why h2 em{color:var(--gold-2)}
 .why .lead{color:rgba(239,230,216,.75)}
 .why-feather{position:absolute;right:-4vw;top:50%;transform:translateY(-50%) rotate(8deg);width:min(46vw,520px);opacity:.14;pointer-events:none}
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(239,230,216,.14);margin-top:72px;border:1px solid rgba(239,230,216,.14)}
+.flow{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(239,230,216,.14);margin-top:72px;border:1px solid rgba(239,230,216,.14)}
 .flow div{background:var(--night);padding:34px 30px 38px}
 .flow .num{font-family:var(--latin);font-size:44px;line-height:1;color:var(--gold-2);font-weight:500}
 .flow h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--gold-2)}
@@ -305,7 +305,23 @@ p{text-wrap:pretty}
 b.ph{font-weight:inherit}
 .flow p{font-size:15px;color:rgba(239,230,216,.7);margin-top:10px}
 .commons{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:56px;padding:28px 0;border-top:1px solid rgba(239,230,216,.14);border-bottom:1px solid rgba(239,230,216,.14)}
-.commons .latin{font-size:12px;color:var(--gold-2)}
+.commons .latin{font-size:12px;color:var(--gold-2);align-self:start;padding-top:4px}
+.cm-list{display:grid;grid-template-columns:1fr;max-width:46em;gap:clamp(20px,4vw,56px)}
+.cm-item h4{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--gold-2);letter-spacing:.04em;margin-bottom:8px}
+.cm-item p{font-size:15px!important;line-height:1.85!important;color:rgba(239,230,216,.82)}
+.gov-note{margin-top:34px;max-width:46em;padding:22px 24px;border-radius:4px;background:rgba(239,230,216,.06);border:1px solid rgba(239,230,216,.16)}
+.gov-note p{font-size:14.5px;line-height:1.85;color:rgba(239,230,216,.72);margin:0}
+.gov-note .gn-l{margin-top:4px}
+.gov-note strong{font-weight:700;color:#F3E6D2}
+.gov-note strong.ul .ph{text-decoration:underline;text-decoration-color:rgba(243,230,210,.6);text-decoration-thickness:1px;text-underline-offset:5px}
+.cm-item p+p{margin-top:6px}
+.gov-note .gn-h{font-family:var(--serif);font-size:16.5px;color:#F3E6D2;font-weight:700;margin-bottom:8px}
+.acct-op{margin-top:12px;padding:14px 16px;background:#FBF7EF;border:1px solid rgba(184,138,96,.45);border-radius:4px}
+.acct-op p{font-size:14px!important;line-height:1.75;color:var(--ink);font-weight:700;margin:0!important}
+.acct-op .op-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px!important}
+.acct-op .op-h b{font-weight:700;color:var(--gold);font-size:14px}
+.acct-op .op-h span{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--ink)}
+@media (max-width:760px){.cm-list{grid-template-columns:1fr;gap:22px}.gov-note{padding:18px 18px}.gov-note p{font-size:14px}}
 .commons p{font-family:var(--serif);font-size:17px;line-height:1.9}
 @media (max-width:860px){.flow{grid-template-columns:1fr}.commons{grid-template-columns:1fr;gap:10px}}
 
@@ -624,7 +640,7 @@ footer{background:var(--night);color:rgba(239,230,216,.7);padding:44px var(--pad
     </div>
     <div class="prog-foot reveal">
       <p><span class="ph">프로그램 참가비는 무료이며,</span> <span class="ph">강연·상영·대화는 사전예약제로 운영됩니다.</span></p>
-      <div class="links prog-links"><a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener"><span class="lk-l">프로그램 사전예약<small>(순천만습지 입장료 별도 3,000원)</small></span><span class="lk-r">참가비 무료 →</span></a></div>
+      <div class="links prog-links"><a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener"><span class="lk-l">프로그램 사전예약<small>(사전예약 시 순천만습지 특별 입장료 2,000원)</small></span><span class="lk-r">참가비 무료 →</span></a></div>
     </div>
   </div>
 </section>
@@ -637,15 +653,22 @@ footer{background:var(--night);color:rgba(239,230,216,.7);padding:44px var(--pad
       <span class="eyebrow">Why We Ask</span>
       <h2>함께 만드는 축제에<br><em>하나의 깃</em>을 더해 주세요</h2>
       <div class="lead why-body"><p><span>〈깃드는 자리〉는 공공의 지원과</span> <span>지역 문화 주체들의 협력으로 마련됩니다.</span></p><p><span>여기에 시민 한 사람 한 사람의 깃이 모일 때,</span> <span>이 자리는 일회성 행사를 넘어</span> <span>해마다 돌아오는 서식지가 됩니다.</span></p></div>
+      <div class="gov-note">
+        <p class="gn-h"><span class="ph">〈하나의 깃〉은 심다가 독립적으로 진행하는</span> <span class="ph">민간 시민 후원 프로젝트입니다.</span></p>
+        <p class="gn-l"><strong class="ul"><span class="ph">본 후원은 전남광주특별시·광주문화재단·순천시의</span> <span class="ph">공공 지원사업 및 예산과 별도로 운영됩니다.</span></strong></p>
+        <p class="gn-l"><span class="ph">후원금의 모집·집행·관리·정산은 심다가 책임지며,</span> <span class="ph">공공 지원금과 구분하여 관리합니다.</span></p>
+        <p class="gn-l"><strong><span class="ph">해당 기관들은 시민 후원금의</span> <span class="ph">모집 및 관리 주체가 아닙니다.</span></strong></p>
+      </div>
     </div>
     <div class="flow reveal">
       <div><h3>큐레이션북 제작</h3><p><span class="ph">10팀이 고른 100종의 책과 이야기를</span> <span class="ph">한 권의 〈새들의 서재〉 큐레이션북으로 엮습니다.</span></p></div>
-      <div><h3>축제 운영</h3><p><span class="ph">책방, 강연, 상영, 전시가</span> <span class="ph">하루 동안 순천만습지에 머물 수 있도록</span> <span class="ph">행사 운영에 사용합니다.</span></p></div>
       <div><h3>다음 축제의 씨앗</h3><p><span class="ph">남은 금액은 다음 〈깃드는 자리〉를 위한</span> <span class="ph">씨앗 자금으로 적립합니다.</span></p></div>
     </div>
     <div class="commons reveal">
       <span class="latin">Commons</span>
-      <p><span class="ph">후원금 사용 내역은 투명하게 공개합니다.</span><br><span class="ph">책 판매로 생긴 수익은 참여 주체들과 나누고,</span> <span class="ph">그 일부를 순천만습지에 돌려드립니다.</span></p>
+      <div class="cm-list">
+        <div class="cm-item"><h4>시민 후원금</h4><p><span class="ph">〈하나의 깃〉 후원금은</span> <span class="ph">〈새들의 서재〉 큐레이션북 제작에 사용하며,</span> <span class="ph">남은 금액은 다음 축제를 위한</span> <span class="ph">씨앗 자금으로 적립합니다.</span></p><p><span class="ph">공공 지원금과 중복 집행하지 않으며,</span> <span class="ph">사용 내역과 잔액을 공개합니다.</span></p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -685,6 +708,9 @@ footer{background:var(--night);color:rgba(239,230,216,.7);padding:44px var(--pad
               <span class="no"><span id="acctNo">7942-37-85399</span><span class="holder">예금주 김*은</span></span>
               <button class="copy" id="copyBtn" type="button">계좌번호 복사</button>
             </div>
+            <div class="acct-op">
+              <p><span class="ph">후원금은 공공 지원금과 별도로 관리하며,</span><br><span class="ph">모금액과 사용 내역, 잔액 및</span> <span class="ph">다음 해 이월 금액을 공개합니다.</span></p>
+            </div>
           </div>
         </li>
         <li class="step">
@@ -721,11 +747,11 @@ footer{background:var(--night);color:rgba(239,230,216,.7);padding:44px var(--pad
         <ul class="info">
           <li><span>일시</span><div><b><span class="ph">2026. 11. 28.(토)</span> <span class="ph">10:00–17:00</span></b></div></li>
           <li><span>장소</span><div><b>순천만습지 자연생태관 1·2층</b></div></li>
-          <li><span>참가비</span><div><b>프로그램 무료 (사전예약)</b><small><span class="ph">순천만습지 입장료 별도 ·</span> <span class="ph">일반 관람 사전예약 시</span> <span class="ph">당일 특별 입장료 3,000원</span></small></div></li>
+          <li><span>참가비</span><div><b>프로그램 무료 (사전예약)</b><small><span class="ph">〈깃드는 자리〉 일반 관람 또는 프로그램 사전예약 시</span> <span class="ph">순천만습지 특별 입장료 2,000원이 적용됩니다.</span><br><span class="ph">모든 프로그램의 참가비는 무료이며,</span> <span class="ph">순천만습지 입장료와 주차요금은 별도입니다.</span></small></div></li>
         </ul>
         <div class="links">
-          <a href="https://naver.me/GtYrhrLT" target="_blank" rel="noopener">일반 관람 사전예약 <span>입장료 3,000원 →</span></a>
-          <a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener" id="progReserve">프로그램 사전예약 <span class="lk-r">입장료 3,000원 →<small>(프로그램 참가비 무료)</small></span></a>
+          <a href="https://naver.me/GtYrhrLT" target="_blank" rel="noopener">일반 관람 사전예약 <span>특별 입장료 2,000원 →</span></a>
+          <a href="https://naver.me/FyAzWhiM" target="_blank" rel="noopener" id="progReserve">프로그램 사전예약 <span class="lk-r">특별 입장료 2,000원 →<small>(프로그램 참가비 무료)</small></span></a>
           <a class="ask" href="https://pf.kakao.com/_MlBxan" target="_blank" rel="noopener">문의하기 <span>심다 카카오톡 채널 →</span></a>
         </div>
       </div>
